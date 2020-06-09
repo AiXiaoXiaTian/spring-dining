@@ -1,0 +1,11 @@
+# 服务基本配置
+server:
+  port: 8060
+
+# 数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:63306/dining
+    username: customer
+    password: Cus@886#./
