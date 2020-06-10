@@ -17,7 +17,7 @@ public class DiningCustomerApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(DiningCustomerApplication.class, args);
 	}
-
+	
 	@Override
 	public void run(String... args) throws Exception {
 		String pwdMd5 = DigestUtils.md5DigestAsHex("123456".getBytes());

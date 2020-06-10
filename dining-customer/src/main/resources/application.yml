@@ -6,6 +6,29 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:63306/dining
-    username: customer
-    password: Cus@886#./
+    # url: jdbc:mysql://127.0.0.1:63306/dining
+    # username: customer
+    # password: hEodeAbdd0QC/njT+VLsZvvMgSPye3hKaBqasYLvtriPKTgTlxBImhNagl9F9BNOFvtrhNHSNiVmFuhV/ZarRg==
+    url: jdbc:mysql://127.0.0.1:3306/dining?serverTimezone=UTC&useSSL=true
+    username: root
+    password: gMMsKVUS8631HKHkiyaQ/GShAiC2LCHP63B8x4tisU/xpOkLjAPt7liq0Fw1BLQZdrf+mdfEd7PWsgpxSRLORw==
+    druid:
+      initial-size: 5  # 初始连接池大小
+      max-active: 5  # 连接池的最大数据库连接数
+      min-idle: 5  # 最小连接池大小
+      max-wait: 60000  # 最大建立连接等待时间
+      pool-prepared-statements: true  # 指定是否池化statements.
+      max-open-prepared-statements: 20  # 指定最大的打开的prepared statements数量
+      validation-query: select 1  # 连接校验查询语句
+      validation-query-timeout: 60000  # 连接校验查询的超时时间
+      test-on-borrow: true  # 当从连接池借用连接时，是否测试该连接
+      test-on-return: true  # 在连接归还到连接池时是否测试该连接
+      test-while-idle: true  # 当连接空闲时，是否执行连接测试
+      time-between-eviction-runs-millis: 60000  # 空闲连接回收的时间间隔，与test-while-idle一起使用，设置1分钟
+      min-evictable-idle-time-millis: 300000  # 连接池空闲连接的有效时间 ，连接空闲时间大于该值并且池中空闲连接大于minIdle则关闭该连接
+      max-evictable-idle-time-millis: 1200000 # 连接空闲时间大于该值，不管minIdle都关闭该连接
+      connection-properties: config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAI2mCnkGrAr0/6Bzr2KSZRkcRovqoe/BOy8V1fDtXypgNaSMnXmSVM+DjkK8HipxZE2yzmXUU/Vvenl4+OrAEcUCAwEAAQ==
+      filters: conn,config,stat,slf4j
+      filter:
+        stat:
+          slow-sql-millis: 50
